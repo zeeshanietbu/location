@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+ 
+<h1>Get Location</h1>
+<p id="location" ></p>
+<button onclick="getLocation()">Get</button>
+
+</body>
+
+<script>
+var p = document.getElementById('location');
+function getLocation()
+{
+if(navigator.geolocation){
+    
+    navigator.geolocation.watchPosition(
+        function success(position){
+
+
+p.innerHTML="latitude ="+ position.coords.latitude + "<br>longitude =" +position.coords.longitude
+console.log(position)
+
+}  ,
+function error (position){
+console.error(position)
+}
+, 
+{ 
+enableHighAccuracy: true
+}
+   
+)
+}
+else{
+    p.innerHTML="geoloaction not suppot"
+}
+
+
+}
+
+
+// let id;
+// let target;
+// let options;
+
+// function success(pos) {
+//   const crd = pos.coords;
+
+//   if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+//     console.log('Congratulations, you reached the target');
+//     navigator.geolocation.clearWatch(id);
+//   }
+// }
+
+// function error(err) {
+//   console.error(`ERROR(${err.code}): ${err.message}`);
+// }
+
+// target = {
+//   latitude : 0,
+//   longitude: 0
+// };
+
+// options = {
+//   enableHighAccuracy: false,
+//   timeout: 5000,
+//   maximumAge: 0
+// };
+
+// id = navigator.geolocation.watchPosition(success, error, options);
+
+
+</script>
+</html>
+</html>
